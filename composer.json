@@ -1,0 +1,26 @@
+{
+    "name": "vrdominguez/dijkstra",
+    "description": "Dijkstra implementation",
+    "type": "library",
+    "require": {
+        "php": ">=8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
+    "license": "GPL3",
+    "autoload": {
+        "psr-4": {
+            "Dijkstra\\": "src/Dijkstra/",
+            "Queues\\": "src/Queues/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Víctor R. Rodríguez Domínguez",
+            "email": "victor@vrdominguez.es"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
