@@ -119,14 +119,22 @@ class Graph
      * @param string $from
      * @param string $to
      * @return array
+     * @throws SameOriginAndDestinationException
      */
     public function getShortestPath(string $from, string $to = ""): array
     {
+        if ( $from == $to) {
+            throw new SameOriginAndDestinationException("To has the same value as from");
+        }
         list($costs, $prev) = $this->calculateCostsFrom($from);
         $destinations = ($to == "") ? array_keys($costs) : [$to];
 
         $paths = [];
         foreach ($destinations as $currentTo) {
+            // Do not obtain path if fom and to are the same node
+            if ( $from == $currentTo )
+                continue;
+
             $path = $this->calculatePathsTo($prev, $currentTo);
             $paths[$currentTo] = [$path, $costs[$currentTo]];
         }
